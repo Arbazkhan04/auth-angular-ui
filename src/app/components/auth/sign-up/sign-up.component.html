@@ -1,0 +1,23 @@
+<form [formGroup]="signUpForm">
+  <h1>Sign Up</h1>
+  <div class="">
+    <input type="text" formControlName="firstName" />
+    <input type="text" formControlName="lastName" />
+  </div>
+  <div class="">
+    <input type="date" formControlName="birthdate" />
+  </div>
+  <div class="">
+    <input type="text" formControlName="email" />
+  </div>
+  <div class="">
+    <input type="text" formControlName="username" />
+  </div>
+  <div class="">
+    <input type="password" formControlName="password" />
+  </div>
+  <div class="">
+    <input type="password" formControlName="confirmPassword" />
+  </div>
+  <button type="submit" class="btn btn-primary">Sign Up</button>
+</form>
