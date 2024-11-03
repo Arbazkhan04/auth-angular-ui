@@ -1,0 +1,8 @@
+.left-container {
+  transition: width 0.5s ease; // Smooth transition for width changes
+  overflow: hidden; // Hide overflow during animation
+}
+
+.flex-col {
+  display: flex;
+}
