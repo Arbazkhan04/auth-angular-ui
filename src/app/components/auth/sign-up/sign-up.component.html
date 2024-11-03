@@ -1,23 +1,39 @@
-<form [formGroup]="signUpForm">
-  <h1>Sign Up</h1>
-  <div class="">
-    <input type="text" formControlName="firstName" />
-    <input type="text" formControlName="lastName" />
+<form action="" class="bg-white rounded-loginFormBr shadow-loginFormShadow">
+  <div class="flex flex-col md:flex-row h-[50vh] md:w-[75vw] lg:w-[50vw]">
+    <div class="flex justify-center items-center flex-col p-4 w-full md:w-[50%]">
+      <h1 class="my-2">Sign Up</h1>
+
+      <!-- input -->
+      <div class="relative mb-4 w-[70%]">
+        <input type="text" placeholder="Username" formControlName="username"
+          class="block rounded-md bg-inputBgColor pr-10 pl-4 py-2 outline-0 w-full" />
+        <i class="ri-user-line absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+      </div>
+
+      <!-- input -->
+      <div class="relative mb-4 w-[70%]">
+        <input type="password" placeholder="Password" formControlName="password"
+          class="block rounded-md bg-inputBgColor pr-10 pl-4 py-2 outline-0 w-full" />
+        <i class="ri-lock-line absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+      </div>
+
+      <div class="relative mb-4 w-[70%]">
+        <input type="password" placeholder="Confirm Password" formControlName="confirmPassword"
+          class="block rounded-md bg-inputBgColor pr-10 pl-4 py-2 outline-0 w-full" />
+        <i class="ri-lock-line absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+      </div>
+
+      <button type="button" (click)="toggleForm()" class="bg-loginFormBgBlue w-[70%] rounded my-2 text-white py-2">Sign
+        Up</button>
+    </div>
+
+    <div
+      class="left-container md:w-[50%] w-full sm:rounded-none md:rounded-rightBottomBrInvert lg:rounded-rightBottomBrInvert bg-loginFormBgBlue p-10 flex justify-center items-center flex-col">
+      <h1 class="text-white my-2 text-center">Welcome Back!</h1>
+      <h6 class="my-2 text-white text-center">Already have an account?</h6>
+      <button type="button" (click)="toggleForm()" class="border-2 border-white px-5 rounded py-1 text-white">
+        Sign In
+      </button>
+    </div>
   </div>
-  <div class="">
-    <input type="date" formControlName="birthdate" />
-  </div>
-  <div class="">
-    <input type="text" formControlName="email" />
-  </div>
-  <div class="">
-    <input type="text" formControlName="username" />
-  </div>
-  <div class="">
-    <input type="password" formControlName="password" />
-  </div>
-  <div class="">
-    <input type="password" formControlName="confirmPassword" />
-  </div>
-  <button type="submit" class="btn btn-primary">Sign Up</button>
 </form>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -6,10 +6,11 @@ import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.scss',
+  styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent {
   signUpForm: FormGroup;
+  @Input() toggleForm!: () => void;  // Accept toggleForm from the parent component
 
   constructor(private formBuilder: FormBuilder) {
     this.signUpForm = this.formBuilder.group({

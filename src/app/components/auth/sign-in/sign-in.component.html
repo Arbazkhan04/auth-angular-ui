@@ -1,57 +1,28 @@
-<!-- <form [formGroup]="signInForm">
-  <h1 i18n>Sign In</h1>
-  <div class="">
-    <input type="text" formControlName="usernameOrEmail" />
-    <i class="bi bi-person-fill"></i>
-  </div>
-  <div class="">
-    <input type="password" formControlName="password" />
-    <i class="bi bi-lock-fill"></i>
-  </div>
-  <div class="form-check">
-    <label class="form-check-label">
-      <input class="form-check-input" type="checkbox" name="remember" />
-      <span i18n>Remember me</span>
-    </label>
-  </div>
-  <button type="submit" class="btn btn-primary" i18n>Sign In</button>
-</form> -->
-
-
-
 <form action="" class="bg-white rounded-loginFormBr shadow-loginFormShadow">
-
-  <!-- form-interal-container -->
-  <div class="flex h-[50vh] w-[50vw] ">
-
-    <!-- form-left-container -->
+  <div class="flex flex-col md:flex-row h-[50vh] md:w-[75vw] lg:w-[50vw]">
     <div
-      class="left-container w-[50%] rounded-rightBottomBr bg-loginFormBgBlue p-10 flex justify-center items-center flex-col">
+      class="left-container md:w-[50%] w-full sm:rounded-none md:rounded-rightBottomBr lg:rounded-rightBottomBr bg-loginFormBgBlue p-10 flex justify-center items-center flex-col">
       <h1 class="text-white my-2 text-center">Hello, Welcome!</h1>
       <h6 class="my-2 text-white text-center">Don't have an account?</h6>
-      <button class="border-2 border-white px-5 rounded py-1 text-white">Sign Up</button>
+      <button type="button" (click)="toggleForm()" class="border-2 border-white px-5 rounded py-1 text-white">Sign
+        Up</button>
     </div>
 
-    <!-- form-right-container -->
-    <div class="flex justify-center items-center flex-col">
+    <div class="flex justify-center items-center flex-col p-4 w-full md:w-[50%]">
       <h1 class="my-2">Sign In</h1>
-
-      <!-- input -->
       <div class="relative mb-4 w-[70%]">
-        <input type="text" placeholder="Username"
-          class="block rounded-md bg-inputBgColor pr-10 pl-4 py-2  outline-0 w-full" />
+        <input type="text" placeholder="Username" formControlName="usernameOrEmail"
+          class="block rounded-md bg-inputBgColor pr-10 pl-4 py-2 outline-0 w-full" />
         <i class="ri-user-line absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
       </div>
-
-      <!-- input -->
-      <div class="relative mb-4 w-[70%] ">
-        <input type="password" placeholder="Password"
+      <div class="relative mb-4 w-[70%]">
+        <input type="password" placeholder="Password" formControlName="password"
           class="block rounded-md bg-inputBgColor pr-10 pl-4 py-2 outline-0 w-full" />
         <i class="ri-lock-line absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
       </div>
-      <button class="bg-loginFormBgBlue w-[70%] rounded my-2 text-white py-2">Sign In</button>
+      <button type="button" (click)="toggleForm()" class="border-2 border-white px-5 rounded py-1 text-white">
+        Sign Up
+      </button>
     </div>
-
   </div>
-
 </form>

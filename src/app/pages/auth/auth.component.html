@@ -1,5 +1,6 @@
 <div class="auth-container bg-loginPageBgColor h-[100vh] flex justify-center items-center">
   <div>
-    <hm-auth-sign-in></hm-auth-sign-in>
+    <hm-auth-sign-up *ngIf="isSignUpVisible" [toggleForm]="toggleForm.bind(this)"></hm-auth-sign-up>
+    <hm-auth-sign-in *ngIf="!isSignUpVisible" [toggleForm]="toggleForm.bind(this)"></hm-auth-sign-in>
   </div>
 </div>
