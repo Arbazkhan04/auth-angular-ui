@@ -12,8 +12,7 @@ module.exports = {
       },
       borderRadius: {
         loginFormBr: '25px', // Add a custom rounded class with a value of 25px
-        rightBottomBr: '25px 140px 140px 25px',
-        rightBottomBrInvert: '140px 25px 25px 140px ',
+        loginBr: '120px ',
         inputBr: '16px',
       },
       boxShadow: {
