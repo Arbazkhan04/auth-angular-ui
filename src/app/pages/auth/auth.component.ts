@@ -17,6 +17,7 @@ export class AuthComponent implements AfterViewInit {
   toggleForm() {
     this.animateToggle();
   }
+  
   animateToggle() {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
     const rightContainer = document.querySelector('.right-container') as HTMLElement;
@@ -26,72 +27,74 @@ export class AuthComponent implements AfterViewInit {
     const tl = gsap.timeline();
 
     // Define the target width for both containers
-    const currentWidth = leftContainer.offsetWidth; // Get current width
-    const targetWidth = currentWidth * 2; // Double the width
+    const currentWidth = leftContainer.offsetWidth;
+    const targetWidth = currentWidth * 2;
 
     if (!this.isSignUpVisible) {
       // Animate to Sign Up form
       tl.to(leftContainer, {
-        width: targetWidth + 'px', // Set the width to double
+        width: targetWidth + 'px',
         duration: 1.5,
-        ease: 'power2.inOut',
+        ease: 'power2.out',
       })
         .to(leftContainer, {
-          x: 600, // Move leftContainer towards the center
+          x: 600,
           duration: 1.5,
-          ease: 'power2.inOut',
-          delay: -1.5, // Start this animation while the previous one is still running
+          ease: 'power2.out',
+          delay: -1.5,
         })
         .to(rightContainer, {
-          x: -500, // Move rightContainer towards the center
+          x: -500,
           duration: 1.5,
-          ease: 'power2.inOut',
-          delay: -1.5, // Start this animation simultaneously
+          ease: 'power2.out',
+          delay: -1.5,
         })
         .to(leftContainerContent, {
-          x: -1000, // Move the content of leftContainer to the left
-          duration: 1, // Duration for the content animation
-          ease: 'power2.inOut',
-          delay: -1.5, // Sync with the previous animations
+          x: -1000,
+          opacity: 0, // Fade out content for smoother transition
+          duration: 1,
+          ease: 'power2.out',
+          delay: -1.5,
         })
-        .set(rightContainer, { display: 'none' }) // Hide right-container after the animation completes
-        .set(leftContainer, { xPercent: 0 }); // Reset left-container position
+        .set(rightContainer, { display: 'none' })
+        .set(leftContainer, { xPercent: 0 });
 
       tl.eventCallback("onComplete", () => {
         this.isSignUpVisible = true;
       });
     } else {
       // Animate to Sign In form
-      gsap.set(rightContainer, { display: 'flex' }); // Show right-container first
-      const tl = gsap.timeline(); // Initialize timeline
+      gsap.set(rightContainer, { display: 'flex' });
+      const tl = gsap.timeline();
 
       tl.to(rightContainer, {
-        width: targetWidth + 'px', // Use the same targetWidth
+        width: targetWidth + 'px',
         duration: 1.5,
-        ease: 'power2.inOut',
+        ease: 'power2.out',
       })
         .to(rightContainer, {
-          x: -600, // Move rightContainer towards the center
+          x: -600,
           duration: 1.5,
-          ease: 'power2.inOut',
-          delay: -1.5, // Start this animation while the previous one is still running
+          ease: 'power2.out',
+          delay: -1.5,
         })
         .to(leftContainer, {
-          x: 500, // Move leftContainer towards the center
+          x: 500,
           duration: 1.5,
-          ease: 'power2.inOut',
-          delay: -1.5, // Start this animation simultaneously
+          ease: 'power2.out',
+          delay: -1.5,
         })
         .to(rightContainerContent, {
-          x: 1000, // Move the content of rightContainer to the right
-          duration: 1, // Duration for the content animation
-          ease: 'power2.inOut',
-          delay: -1.5, // Sync with the previous animations
+          x: 1000,
+          opacity: 0, // Fade out content for smoother transition
+          duration: 1,
+          ease: 'power2.out',
+          delay: -1.5,
         })
-        .set(leftContainer, { display: 'flex' }); // Set leftContainer display to flex
+        .set(leftContainer, { display: 'flex' });
 
       tl.eventCallback("onComplete", () => {
-        this.isSignUpVisible = false; // Update visibility state
+        this.isSignUpVisible = false;
       });
     }
   }
