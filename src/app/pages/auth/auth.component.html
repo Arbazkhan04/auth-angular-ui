@@ -1,4 +1,4 @@
-<div class="auth-container bg-loginPageBgColor h-[100vh] flex justify-center items-center">
+<div class="auth-container bg-[var(--login-page-bg-color)] h-[100vh] flex justify-center items-center">
   <div>
     <hm-auth-sign-up *ngIf="isSignUpVisible" [toggleForm]="toggleForm.bind(this)"></hm-auth-sign-up>
     <hm-auth-sign-in *ngIf="!isSignUpVisible" [toggleForm]="toggleForm.bind(this)"></hm-auth-sign-in>

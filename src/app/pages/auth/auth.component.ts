@@ -17,7 +17,7 @@ export class AuthComponent implements AfterViewInit {
   toggleForm() {
     this.animateToggle();
   }
-  
+
   animateToggle() {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
     const rightContainer = document.querySelector('.right-container') as HTMLElement;
@@ -34,25 +34,25 @@ export class AuthComponent implements AfterViewInit {
       // Animate to Sign Up form
       tl.to(leftContainer, {
         width: targetWidth + 'px',
-        duration: 1.5,
+        duration: 1,
         ease: 'power2.out',
       })
         .to(leftContainer, {
-          x: 600,
-          duration: 1.5,
+          x: 150,
+          duration: 1,
+          scaleX: 1.5,
           ease: 'power2.out',
           delay: -1.5,
         })
         .to(rightContainer, {
-          x: -500,
+          x: 0,
           duration: 1.5,
           ease: 'power2.out',
           delay: -1.5,
         })
         .to(leftContainerContent, {
-          x: -1000,
-          opacity: 0, // Fade out content for smoother transition
-          duration: 1,
+          x: -800,
+          duration: 0.5,
           ease: 'power2.out',
           delay: -1.5,
         })
@@ -69,25 +69,24 @@ export class AuthComponent implements AfterViewInit {
 
       tl.to(rightContainer, {
         width: targetWidth + 'px',
-        duration: 1.5,
+        duration: 1,
         ease: 'power2.out',
+      }).to(rightContainer, {
+        x: -200,
+        scaleX: 2,
+        duration: 1,
+        ease: 'power2.out',
+        delay: -1.5,
       })
-        .to(rightContainer, {
-          x: -600,
-          duration: 1.5,
-          ease: 'power2.out',
-          delay: -1.5,
-        })
         .to(leftContainer, {
-          x: 500,
+          x: 0,
           duration: 1.5,
           ease: 'power2.out',
           delay: -1.5,
         })
         .to(rightContainerContent, {
-          x: 1000,
-          opacity: 0, // Fade out content for smoother transition
-          duration: 1,
+          x: 800,
+          duration: 0.5,
           ease: 'power2.out',
           delay: -1.5,
         })

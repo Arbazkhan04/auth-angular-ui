@@ -6,13 +6,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        loginPageBgColor: '#DDDFE9',
+        loginPageBgColor: 'var(--login-page-bg-color)', // #E1E1E2 #C9D6FE
         loginFormBgBlue: '#7894EC',
         inputBgColor: '#EEEDEE',
       },
       borderRadius: {
         loginFormBr: '25px', // Add a custom rounded class with a value of 25px
-        loginBr: '120px ',
+        loginBr: '100px ',
         inputBr: '16px',
       },
       boxShadow: {
