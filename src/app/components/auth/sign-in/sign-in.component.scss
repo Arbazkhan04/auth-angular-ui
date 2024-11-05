@@ -4,21 +4,13 @@ form {
 }
 
 .left-container {
-  position: relative;
+  // position: relative;
   margin-left: -70px;
   z-index: 1;
 
 }
 
-.left-container-content {
-  position: absolute;
-  /* Change from fixed to absolute */
-  // transform: translate(-50%, -50%);
-  // top: 50%;
-  // left: 50%;
-  // text-align: center;
-  // overflow: hidden;
-}
+.left-container-content {}
 
 
 .right-container {
