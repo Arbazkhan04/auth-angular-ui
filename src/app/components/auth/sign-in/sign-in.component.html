@@ -1,40 +1,18 @@
-<form action="" class=" bg-white rounded-loginFormBr shadow-loginFormShadow flex flex-col md:flex-row h-[55vh]
-  md:w-[65vw] xl:w-[45vw] relative">
-
-  <!-- form-left-container -->
-  <div
-    class="left-container md:w-[60%]  sm:rounded-none md:rounded-loginBr bg-loginFormBgBlue ps-0 pe-10 py-10  flex justify-center items-center flex-col">
-    <div class="left-container-content ms-10 text-center">
-      <h1 class="text-white my-2">Hello, Welcome!</h1>
-      <h6 class="my-2 text-white">Don't have an account?</h6>
-      <button type="button" (click)="toggleForm()"
-        class="border-2 cursor-pointer border-white px-5 rounded py-1 text-white ">
-        Sign Up
-      </button>
-    </div>
+<h2 class="text-3xl font-bold mb-6 text-gray-800">Sign In</h2>
+<form class="flex flex-col w-full max-w-xs space-y-4">
+  <div class="relative">
+    <input type="text" placeholder="Username" class="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:border-purple-500" />
+    <span class="absolute inset-y-0 right-3 flex items-center text-gray-400">
+      <i class="fas fa-user"></i>
+    </span>
   </div>
-
-  <!-- form-right-container -->
-  <div class="right-container flex justify-center items-center flex-col p-4 md:w-[50%]">
-    <h1 class="my-2">Sign In</h1>
-
-    <!-- input -->
-    <div class="relative mb-4 w-[80%]">
-      <input type="text" placeholder="Username" formControlName="usernameOrEmail"
-        class="block rounded-md bg-inputBgColor pr-10 pl-4 py-2 outline-0 w-full" />
-      <i class="ri-user-line absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
-    </div>
-
-    <!-- input -->
-    <div class="relative mb-4 w-[80%]">
-      <input type="password" placeholder="Password" formControlName="password"
-        class="block rounded-md bg-inputBgColor pr-10 pl-4 py-2 outline-0 w-full" />
-      <i class="ri-lock-line absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
-    </div>
-
-    <button type="button" class="border-2 w-[80%] border-white px-5 rounded-md py-1 text-white bg-loginFormBgBlue">
-      Sign In
-    </button>
+  <div class="relative">
+    <input type="password" placeholder="Password" class="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:border-purple-500" />
+    <span class="absolute inset-y-0 right-3 flex items-center text-gray-400">
+      <i class="fas fa-lock"></i>
+    </span>
   </div>
-
+  <button type="submit" class="w-full px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors duration-300">
+    Sign In
+  </button>
 </form>

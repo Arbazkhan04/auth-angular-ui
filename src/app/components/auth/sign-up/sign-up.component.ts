@@ -9,18 +9,5 @@ import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent {
-  signUpForm: FormGroup;
-  @Input() toggleForm!: () => void;  // Accept toggleForm from the parent component
 
-  constructor(private formBuilder: FormBuilder) {
-    this.signUpForm = this.formBuilder.group({
-      firstName: [''],
-      lastName: [''],
-      birthdate: [''],
-      email: [''],
-      username: [''],
-      password: [''],
-      confirmPassword: [''],
-    });
-  }
 }

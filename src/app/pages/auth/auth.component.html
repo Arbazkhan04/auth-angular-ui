@@ -1,6 +1,46 @@
-<div class="auth-container h-[100vh] flex justify-center items-center">
-  <div>
-    <hm-auth-sign-up *ngIf="isSignUpVisible" [toggleForm]="toggleForm.bind(this)"></hm-auth-sign-up>
-    <hm-auth-sign-in *ngIf="!isSignUpVisible" [toggleForm]="toggleForm.bind(this)"></hm-auth-sign-in>
+<div class="flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-100 to-purple-100">
+  <div
+    class="relative flex w-[800px] h-[500px] bg-white shadow-2xl rounded-lg overflow-hidden transition-all duration-700 ease-in-out"
+  >
+    <!-- Sliding Panel -->
+    <div
+      class="absolute inset-y-0 left-0 flex flex-col items-center justify-center bg-purple-500 text-white p-10 transition-all duration-700 ease-in-out z-20"
+      [ngClass]="{
+        'w-full': fullWidthTransition,
+        'w-1/2': !fullWidthTransition,
+        'translate-x-full': isSignUp && !fullWidthTransition,
+        'translate-x-0': !isSignUp || fullWidthTransition,
+        'rounded-tr-[100px] rounded-br-[100px]': !isSignUp && !fullWidthTransition,
+        'rounded-tl-[100px] rounded-bl-[100px]': isSignUp && !fullWidthTransition,
+        'rounded-none': fullWidthTransition
+      }"
+    >
+      <h2 class="text-3xl font-bold mb-4">{{ isSignUp ? 'Hello, Welcome!' : 'Welcome Back' }}</h2>
+      <p class="mb-6">{{ isSignUp ? 'Already have an account?' : "Don't have an account?" }}</p>
+      <button
+        (click)="toggleForm()"
+        class="px-6 py-2 border border-white rounded-lg hover:bg-white hover:text-purple-500 transition-colors duration-300"
+      >
+        {{ isSignUp ? 'Sign In' : 'Sign Up' }}
+      </button>
+    </div>
+
+    <!-- Form Container -->
+    <div
+      class="absolute inset-y-0 right-0 flex flex-col items-center justify-center transition-all duration-700 ease-in-out z-10"
+      [ngClass]="{
+        'w-1/2': !fullWidthTransition,
+        'w-full': fullWidthTransition && isSignUp,
+        'translate-x-0': !isSignUp || fullWidthTransition,
+        '-translate-x-full': isSignUp && !fullWidthTransition,
+        'rounded-tl-[100px] rounded-bl-[100px]': isSignUp && !fullWidthTransition,
+        'rounded-tr-[100px] rounded-br-[100px]': !isSignUp && !fullWidthTransition
+      }"
+    >
+      <!-- Load SignIn or SignUp form conditionally -->
+      <hm-auth-sign-in *ngIf="!isSignUp"></hm-auth-sign-in>
+      <hm-auth-sign-up *ngIf="isSignUp"></hm-auth-sign-up>
+    </div>
+
   </div>
 </div>
