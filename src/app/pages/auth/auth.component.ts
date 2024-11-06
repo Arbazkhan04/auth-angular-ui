@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SignInComponent } from '../../components/auth/sign-in/sign-in.component'
-import { SignUpComponent } from '../../components/auth/sign-up/sign-up.component'
-
+import { SignInComponent } from '../../components/auth/sign-in/sign-in.component';
+import { SignUpComponent } from '../../components/auth/sign-up/sign-up.component';
 
 @Component({
   selector: 'hm-pg-auth',
@@ -14,23 +13,29 @@ import { SignUpComponent } from '../../components/auth/sign-up/sign-up.component
 export class AuthComponent {
   fullWidthTransition: boolean = false;
   isSignUp: boolean = false;
-  transitioning: boolean = false; // To handle intermediate transition states
+  isTextSlidingOut: boolean = false;
+  isTextSlidingIn: boolean = false;
 
   toggleForm() {
-    this.transitioning = true;
-
-    // Step 1: Trigger full width transition of the panel
+    // Step 1: Start expanding the panel to full width, keeping text fixed
     this.fullWidthTransition = true;
 
-    // Step 2: After panel transition, toggle form and start text transition
+    // Step 2: Slide out the current text to the left
     setTimeout(() => {
-      this.isSignUp = !this.isSignUp; // Toggle form view after panel transition
-      this.fullWidthTransition = false; // Reset panel width
+      this.isTextSlidingOut = true; // Trigger text slide-out animation
 
-      // Step 3: End transition after text animation completes
+      // Step 3: After text slides out, toggle form type and slide in the new text from the right
       setTimeout(() => {
-        this.transitioning = false;
-      }, 500); // Adjust to match text animation duration
-    }, 700); // Adjust to match panel transition duration
+        this.isSignUp = !this.isSignUp; // Toggle between sign-up and sign-in form
+        this.isTextSlidingOut = false; // Reset text slide-out state
+        this.fullWidthTransition = false; // Reset panel width transition
+        this.isTextSlidingIn = true; // Start sliding in the new text from the right
+
+        // Step 4: Complete text slide-in animation
+        setTimeout(() => {
+          this.isTextSlidingIn = false;
+        }, 500); // Text slide-in duration
+      }, 500); // Text slide-out duration
+    }, 700); // Panel expansion duration
   }
 }
