@@ -14,14 +14,23 @@ import { SignUpComponent } from '../../components/auth/sign-up/sign-up.component
 export class AuthComponent {
   fullWidthTransition: boolean = false;
   isSignUp: boolean = false;
+  transitioning: boolean = false; // To handle intermediate transition states
 
   toggleForm() {
+    this.transitioning = true;
+
+    // Step 1: Trigger full width transition of the panel
     this.fullWidthTransition = true;
-    
-    this.isSignUp = !this.isSignUp; // Toggle immediately
-    // Reset `fullWidthTransition` after the animation completes
+
+    // Step 2: After panel transition, toggle form and start text transition
     setTimeout(() => {
-      this.fullWidthTransition = false;
-    }, 700); // Should match the duration of the CSS animation
+      this.isSignUp = !this.isSignUp; // Toggle form view after panel transition
+      this.fullWidthTransition = false; // Reset panel width
+
+      // Step 3: End transition after text animation completes
+      setTimeout(() => {
+        this.transitioning = false;
+      }, 500); // Adjust to match text animation duration
+    }, 700); // Adjust to match panel transition duration
   }
 }
