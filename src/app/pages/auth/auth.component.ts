@@ -17,25 +17,25 @@ export class AuthComponent {
   isTextSlidingIn: boolean = false;
 
   toggleForm() {
-    // Step 1: Start expanding the panel to full width, keeping text fixed
+    // Step 1: Start expanding the panel to full width, while text remains in place
     this.fullWidthTransition = true;
 
-    // Step 2: Slide out the current text to the left
+    // Step 2: Slide out the current text a bit sooner to allow an overlap with panel expansion
     setTimeout(() => {
-      this.isTextSlidingOut = true; // Trigger text slide-out animation
+      this.isTextSlidingOut = true;
 
-      // Step 3: After text slides out, toggle form type and slide in the new text from the right
+      // Step 3: Toggle the form type and slide in the new text
       setTimeout(() => {
-        this.isSignUp = !this.isSignUp; // Toggle between sign-up and sign-in form
-        this.isTextSlidingOut = false; // Reset text slide-out state
-        this.fullWidthTransition = false; // Reset panel width transition
-        this.isTextSlidingIn = true; // Start sliding in the new text from the right
+        this.isSignUp = !this.isSignUp;
+        this.isTextSlidingOut = false;
+        this.fullWidthTransition = false;
+        this.isTextSlidingIn = true;
 
-        // Step 4: Complete text slide-in animation
+        // Step 4: Finish the text slide-in animation
         setTimeout(() => {
           this.isTextSlidingIn = false;
-        }, 500); // Text slide-in duration
-      }, 500); // Text slide-out duration
-    }, 700); // Panel expansion duration
+        }, 500); // Shortened text slide-in duration
+      }, 800); // Shortened text slide-out duration
+    }, 500); // Panel expansion starts earlier
   }
 }

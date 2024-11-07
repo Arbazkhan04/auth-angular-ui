@@ -1,60 +1,42 @@
+
 @keyframes slideLeftOut {
-    0% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-  }
-  
-  @keyframes slideRightOut {
-    0% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-  }
-  
-  @keyframes slideLeftIn {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideRightIn {
-    0% {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
-  .slide-out-left {
-    animation: slideLeftOut 0.5s forwards;
-  }
-  
-  .slide-out-right {
-    animation: slideRightOut 0.5s forwards;
-  }
-  
-  .slide-in-left {
-    animation: slideLeftIn 0.5s forwards;
-  }
-  
-  .slide-in-right {
-    animation: slideRightIn 0.5s forwards;
-  }
-  
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes slideRightOut {
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes slideLeftIn {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRightIn {
+  0% { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Apply smoother easing */
+.slide-out-left {
+  animation: slideLeftOut 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.slide-out-right {
+  animation: slideRightOut 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.slide-in-left {
+  animation: slideLeftIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.slide-in-right {
+  animation: slideRightIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Smooth transition for panel width */
+.transition-width {
+  @apply transition-all duration-700 ease-in-out;
+}
