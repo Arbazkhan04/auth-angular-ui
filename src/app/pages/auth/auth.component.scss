@@ -21,19 +21,19 @@
 
 /* Apply smoother easing */
 .slide-out-left {
-  animation: slideLeftOut 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: slideLeftOut 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .slide-out-right {
-  animation: slideRightOut 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: slideRightOut 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .slide-in-left {
-  animation: slideLeftIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: slideLeftIn 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .slide-in-right {
-  animation: slideRightIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: slideRightIn 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 /* Smooth transition for panel width */
